@@ -1,0 +1,8 @@
+<section>
+  <p>Current description: {{description}}</p>
+
+  <form action="/todos/{{id}}/edit" method="post">
+    <label for="description-field">New description</label>
+    <input type="text" id="description-field" name="description" />
+  </form>
+</section>

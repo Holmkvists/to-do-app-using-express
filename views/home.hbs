@@ -1,8 +1,16 @@
-<section>
-  {{#each todosArray}}
-    <ul>
-      <li>{{created}}</li>
-      <li><a href="/todos/{{id}}">{{description}}</a></li>
-    </ul>
-  {{/each}}
-</section>
+<main>
+  <section>
+    {{#each todosArray}}
+      <ul>
+        <li>{{created}}</li>
+        <li><a href="/todos/{{id}}">{{description}}</a></li>
+        <li><input type="checkbox" name="completed" /></li>
+      </ul>
+    {{/each}}
+  </section>
+  <form action="/" method="post">
+    <label for="description-field">Description</label>
+    <input type="text" id=""description-field" "name="description" />
+    <input type="submit" value="Add" />
+  </form>
+</main>
