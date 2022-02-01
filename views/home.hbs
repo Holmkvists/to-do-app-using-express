@@ -1,16 +1,20 @@
 <main>
   <section>
     {{#each todosArray}}
-      <ul>
-        <li>{{created}}</li>
-        <li><a href="/todos/{{id}}">{{description}}</a></li>
-        <li><input type="checkbox" name="completed" /></li>
+      <ul class="todos">
+        <li class="description"><a href="/todos/{{id}}">{{description}}</a></li>
+        <li class="toggler"><input type="checkbox" name="completed" /></li>
+        <li class="created-date">Created: {{created}}</li>
       </ul>
     {{/each}}
+    <div class="form-container">
+      <h3>Add a new to do here</h3>
+      <form action="/" id="new-form" method="post">
+        <label for="description-field">Description:</label>
+        <input type="text" id="description-field" name="description" required />
+        <input type="submit" id="add-button" value="Get it done!" />
+      </form>
+    </div>
   </section>
-  <form action="/" method="post">
-    <label for="description-field">Description</label>
-    <input type="text" id="description-field" name="description" />
-    <input type="submit" value="Add" />
-  </form>
+
 </main>

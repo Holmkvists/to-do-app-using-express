@@ -5,8 +5,6 @@
   font-family: Arial, Helvetica, sans-serif;
   list-style: none;
   text-decoration: none;
-  color: #317773;
-  background-color: #e2d1f9;
 }
 
 body {
@@ -20,10 +18,11 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 400px;
-  background-color: #e2d1f9;
   font-style: italic;
-  outline: 3px solid #317773;
+  outline: 3px solid teal;
   outline-offset: -3px;
+  color: #317773;
+  background-color: #e2d1f9;
 }
 
 #logo {
@@ -35,7 +34,108 @@ header {
   width: 100%;
   text-align: center;
   font-weight: bold;
-  border: 3px solid #317773;
+  border: 3px solid teal;
   padding: 0.5em;
   font-size: 13pt;
+}
+
+#menu-item {
+  color: teal;
+}
+
+main {
+  width: 400px;
+}
+
+section {
+  background-color: rgb(208, 228, 228);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todos {
+  position: relative;
+  border: 3px solid teal;
+  width: 95%;
+  padding: 1em;
+  margin-top: 10px;
+}
+
+.description {
+  font-weight: bold;
+  width: 90%;
+  margin-bottom: 5px;
+}
+
+.toggler {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+}
+
+.created-date {
+  font-size: 10pt;
+  color: teal;
+  font-style: italic;
+}
+
+a {
+  color: teal;
+  text-decoration-line: underline;
+}
+
+.form-container {
+  width: 95%;
+  padding: 1em;
+  color: teal;
+  background-color: #e2d1f9;
+  border: 3px solid teal;
+  margin: 10px 0;
+}
+
+h3 {
+  margin-bottom: 10px;
+  padding: 0.25em;
+}
+
+#new-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+label {
+  font-size: 10pt;
+  font-style: italic;
+  padding: 0.25em;
+  border-bottom: 1px solid teal;
+}
+
+#description-field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid teal;
+  background-color: #e2d1f9;
+  color: teal;
+  padding: 0.25em;
+}
+
+#description-field:focus {
+  outline: 0;
+}
+
+#add-button {
+  font-style: italic;
+  color: teal;
+  border: 0;
+  padding: 0.25em;
+  border-bottom: 1px solid teal;
+  background-color: #e2d1f9;
+}
+
+#add-button:hover {
+  background-color: teal;
+  color: #e2d1f9;
+  border-radius: 30px;
 }
