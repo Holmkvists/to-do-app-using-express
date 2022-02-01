@@ -74,6 +74,31 @@ app.get("/todos/:id/edit", (req, res) => {
   res.render("todo-edit", todo);
 });
 
+app.post("/todos/:id/edit", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = todosArray.findIndex((t) => t.id === id);
+
+  todosArray[index].description = req.body.description;
+
+  res.redirect("/todos/" + id);
+});
+
+app.get("/todos/:id/delete", (req, res) => {
+  const id = parseInt(req.params.id);
+  const todo = todosArray.find((t) => t.id === id);
+
+  res.render("todo-delete", todo);
+});
+
+app.post("/todos/:id/delete", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = todosArray.findIndex((t) => t.id === id);
+
+  todosArray.splice(index, 1);
+
+  res.redirect("/");
+});
+
 app.listen(8000, () => {
   console.log("http://localhost:8000/");
 });
