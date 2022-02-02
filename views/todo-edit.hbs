@@ -1,9 +1,32 @@
-<section>
-  <p>Current description: {{description}}</p>
+<main>
+  <section>
+    <div class="current-details">
+      <p>{{description}}</p>
+      <p>Status: {{status}}</p>
+    </div>
 
-  <form action="/todos/{{id}}/edit" method="post">
-    <label for="description-field">New description</label>
-    <input type="text" id="description-field" name="description" />
-    <input type="submit" value="Save" />
-  </form>
-</section>
+    <div class="form-container">
+      <form action="/todos/{{id}}/edit" id="edit-form" method="post">
+        <div class="form-content-container">
+          <label for="description-field">New description:</label>
+          <input
+            type="text"
+            id="description-field"
+            name="description"
+            required
+          />
+        </div>
+        <div>
+          <div class="form-content-container">
+            <label for="select-field">Status:</label>
+            <select name="status" id="select-field">
+              <option value="In progress">In progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <input type="submit" value="Save" />
+      </form>
+    </div>
+  </section>
+</main>

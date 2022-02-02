@@ -52,7 +52,7 @@ app.post("/", (req, res) => {
     id: id,
     description: req.body.description,
     created: getDateTime(),
-    completed: false,
+    status: "In progress",
   };
 
   console.log(newTodo);
@@ -79,7 +79,9 @@ app.post("/todos/:id/edit", (req, res) => {
   const index = todosArray.findIndex((t) => t.id === id);
 
   todosArray[index].description = req.body.description;
+  todosArray[index].status = req.body.status;
 
+  console.log(todosArray);
   res.redirect("/todos/" + id);
 });
 

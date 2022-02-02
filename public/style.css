@@ -18,6 +18,8 @@ body {
   align-items: center;
 }
 
+/* HEADER */
+
 header {
   display: flex;
   flex-wrap: wrap;
@@ -48,16 +50,56 @@ header {
   color: var(--secondary-color);
 }
 
+/* GLOBAL BODY STYLING */
+
 main {
   width: 400px;
 }
 
 section {
-  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--secondary-color);
 }
+
+a {
+  color: var(--main-color);
+  text-decoration-line: underline;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.form-container {
+  width: 95%;
+  padding: 1em;
+  color: var(--secondary-color);
+  background-color: var(--main-color);
+  margin: 10px 0;
+}
+
+input[type="submit"],
+select,
+option {
+  font-style: italic;
+  color: var(--secondary-color);
+  border: 0;
+  padding: 0.25em;
+  border-bottom: 1px solid var(--secondary-color);
+  background-color: var(--main-color);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+/* HOME PAGE */
 
 .todos {
   display: flex;
@@ -87,28 +129,10 @@ section {
   color: var(--main-color);
 }
 
-a {
-  color: var(--main-color);
-  text-decoration-line: underline;
-}
-
-.form-container {
-  width: 95%;
-  padding: 1em;
-  color: var(--secondary-color);
-  background-color: var(--main-color);
-  margin: 10px 0;
-}
-
 h3 {
   margin-bottom: 10px;
   padding: 0.25em;
-}
-
-#new-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  font-style: italic;
 }
 
 label {
@@ -131,16 +155,27 @@ label {
   outline: 0;
 }
 
-#add-button {
-  font-style: italic;
-  color: var(--secondary-color);
-  border: 0;
-  padding: 0.25em;
-  border-bottom: 1px solid var(--secondary-color);
-  background-color: var(--main-color);
+/* EDIT PAGE */
+
+.current-details {
+  width: 90%;
+  color: var(--main-color);
+  font-weight: bold;
 }
 
-#add-button:hover {
-  background-color: var(--secondary-color);
-  color: var(--main-color);
+.current-details > p {
+  margin-top: 10px;
+}
+
+#edit-form {
+  flex-wrap: wrap;
+}
+
+.form-content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 25px;
+  width: 100%;
+  white-space: nowrap;
 }
