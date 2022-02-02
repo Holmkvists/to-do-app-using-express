@@ -7,6 +7,11 @@
   text-decoration: none;
 }
 
+:root {
+  --main-color: #ccf381;
+  --secondary-color: #4831d4;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -19,10 +24,10 @@ header {
   justify-content: space-around;
   width: 400px;
   font-style: italic;
-  outline: 3px solid teal;
+  outline: 3px solid var(--secondary-color);
   outline-offset: -3px;
-  color: #317773;
-  background-color: #e2d1f9;
+  color: var(--secondary-color);
+  background-color: var(--main-color);
 }
 
 #logo {
@@ -34,13 +39,13 @@ header {
   width: 100%;
   text-align: center;
   font-weight: bold;
-  border: 3px solid teal;
+  border: 3px solid var(--secondary-color);
   padding: 0.5em;
   font-size: 13pt;
 }
 
 #menu-item {
-  color: teal;
+  color: var(--secondary-color);
 }
 
 main {
@@ -48,15 +53,18 @@ main {
 }
 
 section {
-  background-color: rgb(208, 228, 228);
+  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .todos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   position: relative;
-  border: 3px solid teal;
+  border: 3px solid var(--main-color);
   width: 95%;
   padding: 1em;
   margin-top: 10px;
@@ -64,33 +72,31 @@ section {
 
 .description {
   font-weight: bold;
-  width: 90%;
-  margin-bottom: 5px;
-}
-
-.toggler {
-  position: absolute;
-  right: 5%;
-  top: 40%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .created-date {
   font-size: 10pt;
-  color: teal;
+  color: var(--main-color);
   font-style: italic;
 }
 
+.completed-status {
+  font-size: 10pt;
+  color: var(--main-color);
+}
+
 a {
-  color: teal;
+  color: var(--main-color);
   text-decoration-line: underline;
 }
 
 .form-container {
   width: 95%;
   padding: 1em;
-  color: teal;
-  background-color: #e2d1f9;
-  border: 3px solid teal;
+  color: var(--secondary-color);
+  background-color: var(--main-color);
   margin: 10px 0;
 }
 
@@ -109,15 +115,15 @@ label {
   font-size: 10pt;
   font-style: italic;
   padding: 0.25em;
-  border-bottom: 1px solid teal;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 #description-field {
   width: 100%;
   border: 0;
-  border-bottom: 1px solid teal;
-  background-color: #e2d1f9;
-  color: teal;
+  border-bottom: 1px solid var(--secondary-color);
+  background-color: var(--main-color);
+  color: var(--secondary-color);
   padding: 0.25em;
 }
 
@@ -127,15 +133,14 @@ label {
 
 #add-button {
   font-style: italic;
-  color: teal;
+  color: var(--secondary-color);
   border: 0;
   padding: 0.25em;
-  border-bottom: 1px solid teal;
-  background-color: #e2d1f9;
+  border-bottom: 1px solid var(--secondary-color);
+  background-color: var(--main-color);
 }
 
 #add-button:hover {
-  background-color: teal;
-  color: #e2d1f9;
-  border-radius: 30px;
+  background-color: var(--secondary-color);
+  color: var(--main-color);
 }

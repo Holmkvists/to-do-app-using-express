@@ -3,8 +3,8 @@
     {{#each todosArray}}
       <ul class="todos">
         <li class="description"><a href="/todos/{{id}}">{{description}}</a></li>
-        <li class="toggler"><input type="checkbox" name="completed" /></li>
         <li class="created-date">Created: {{created}}</li>
+        <li class="completed-status">Status: {{completed}}</li>
       </ul>
     {{/each}}
     <div class="form-container">
