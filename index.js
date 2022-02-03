@@ -67,6 +67,15 @@ app.get("/todos/:id", (req, res) => {
   res.render("todo-detailed", todo);
 });
 
+app.post("/todos/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = todosArray.findIndex((t) => t.id === id);
+
+  todosArray[index].status = req.body.status;
+
+  res.redirect("/");
+});
+
 app.get("/todos/:id/edit", (req, res) => {
   const id = parseInt(req.params.id);
   const todo = todosArray.find((t) => t.id === id);
@@ -81,7 +90,6 @@ app.post("/todos/:id/edit", (req, res) => {
   todosArray[index].description = req.body.description;
   todosArray[index].status = req.body.status;
 
-  console.log(todosArray);
   res.redirect("/todos/" + id);
 });
 
