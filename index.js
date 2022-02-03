@@ -1,6 +1,10 @@
+// MODULES
+
 const express = require("express");
 const exphbs = require("express-handlebars");
 const todosArray = require("./data/todos");
+
+// SETUP
 
 const app = express();
 
@@ -13,6 +17,11 @@ app.engine(
 );
 
 app.set("view engine", "hbs");
+
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+
+// FUNCTIONS
 
 function createNewId(array) {
   let newId = 0;
@@ -36,8 +45,7 @@ function getDateTime() {
   return currentDateTime;
 }
 
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
+// HOME PAGE
 
 app.get("/", (req, res) => {
   res.render("home", { todosArray });
@@ -54,10 +62,11 @@ app.post("/", (req, res) => {
     statusText: "In progress",
   };
 
-  console.log(newTodo);
   todosArray.push(newTodo);
   res.redirect("/");
 });
+
+// DETAILED PAGE
 
 app.get("/todos/:id", (req, res) => {
   const id = parseInt(req.params.id);
@@ -76,6 +85,8 @@ app.post("/todos/:id", (req, res) => {
 
   res.redirect("/");
 });
+
+// EDIT PAGE
 
 app.get("/todos/:id/edit", (req, res) => {
   const id = parseInt(req.params.id);
@@ -97,6 +108,8 @@ app.post("/todos/:id/edit", (req, res) => {
   res.redirect("/todos/" + id);
 });
 
+// DELETE PAGE
+
 app.get("/todos/:id/delete", (req, res) => {
   const id = parseInt(req.params.id);
   const todo = todosArray.find((t) => t.id === id);
@@ -112,6 +125,8 @@ app.post("/todos/:id/delete", (req, res) => {
 
   res.redirect("/");
 });
+
+// SERVER
 
 app.listen(8000, () => {
   console.log("http://localhost:8000/");
