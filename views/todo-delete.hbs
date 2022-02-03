@@ -1,8 +1,11 @@
 <main>
   <section>
-    <p>Are you sure you want to delete this to do?</p>
-    <form action="/todos/{{id}}/delete" method="post">
-      <input type="submit" value="Confirm deletion" />
+    <div class="details">
+      <p>{{description}}</p>
+      <p>Are you sure you want to delete this item?</p>
+    </div>
+    <form action="/todos/{{id}}/delete" id="delete-form" method="post">
+      <input type="submit" value="Delete" />
     </form>
   </section>
 </main>

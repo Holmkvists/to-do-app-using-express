@@ -99,6 +99,11 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+select:hover,
+option:hover {
+  cursor: pointer;
+}
+
 /* HOME PAGE */
 
 .todos {
@@ -197,13 +202,13 @@ label {
 
 /* EDIT PAGE */
 
-.current-details {
+.details {
   width: 90%;
   color: var(--main-color);
   font-weight: bold;
 }
 
-.current-details > p {
+.details > p {
   margin-top: 10px;
 }
 
@@ -218,4 +223,23 @@ label {
   height: 25px;
   width: 100%;
   white-space: nowrap;
+}
+
+/* DELETE PAGE */
+
+#delete-form {
+  width: 100%;
+  justify-content: center;
+  background-color: var(--main-color);
+  border: 3px solid var(--secondary-color);
+  margin-top: 10px;
+  padding: 0.25em;
+}
+
+#delete-form input {
+  font-style: normal;
+  text-decoration: underline;
+  font-size: 12pt;
+  font-weight: bold;
+  border: none;
 }
