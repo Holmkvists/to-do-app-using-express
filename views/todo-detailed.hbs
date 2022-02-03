@@ -3,10 +3,10 @@
     <div class="details">
       <p>{{description}}</p>
       <form action="/todos/{{id}}" id="status-form" method="post">
-        <label for="select-field">Status:</label>
-        <select name="status" id="select-field">
-          <option value="In progress">In progress</option>
-          <option value="Completed">Completed</option>
+        <label for="select-field">Set status:</label>
+        <select name="completed">
+          <option value="false">In progress</option>
+          <option value="true">Completed</option>
         </select>
         <input type="submit" value="Change status" />
       </form>

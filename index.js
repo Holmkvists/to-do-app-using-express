@@ -36,8 +36,6 @@ function getDateTime() {
   return currentDateTime;
 }
 
-console.log(todosArray);
-
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
@@ -52,7 +50,8 @@ app.post("/", (req, res) => {
     id: id,
     description: req.body.description,
     created: getDateTime(),
-    status: "In progress",
+    completed: false,
+    statusText: "In progress",
   };
 
   console.log(newTodo);
@@ -69,9 +68,11 @@ app.get("/todos/:id", (req, res) => {
 
 app.post("/todos/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const index = todosArray.findIndex((t) => t.id === id);
+  const index = todosArray.findIndex((i) => i.id === id);
 
-  todosArray[index].status = req.body.status;
+  let completed = req.body.completed === "true";
+  todosArray[index].completed = completed;
+  todosArray[index].statusText = completed ? "Completed" : "In progress";
 
   res.redirect("/");
 });
@@ -88,7 +89,10 @@ app.post("/todos/:id/edit", (req, res) => {
   const index = todosArray.findIndex((t) => t.id === id);
 
   todosArray[index].description = req.body.description;
-  todosArray[index].status = req.body.status;
+
+  let completed = req.body.completed === "true";
+  todosArray[index].completed = completed;
+  todosArray[index].statusText = completed ? "Completed" : "In progress";
 
   res.redirect("/todos/" + id);
 });

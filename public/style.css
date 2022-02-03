@@ -76,10 +76,10 @@ form {
 
 .form-container {
   width: 95%;
-  padding: 1em;
+  padding: 0.75em;
   color: var(--secondary-color);
   background-color: var(--main-color);
-  margin: 10px 0;
+  margin: 15px 0 10px 0;
 }
 
 input[type="submit"],
@@ -88,17 +88,12 @@ option {
   font-style: italic;
   color: var(--secondary-color);
   border: 0;
-  padding: 0.25em;
+  padding: 0.2em;
   border-bottom: 1px solid var(--secondary-color);
   background-color: var(--main-color);
 }
 
-input[type="submit"]:hover {
-  background-color: var(--secondary-color);
-  color: var(--main-color);
-  cursor: pointer;
-}
-
+input[type="submit"]:hover,
 select:hover,
 option:hover {
   cursor: pointer;
@@ -143,7 +138,7 @@ h3 {
 label {
   font-size: 10pt;
   font-style: italic;
-  padding: 0.25em;
+  padding: 0.2em;
   border-bottom: 1px solid var(--secondary-color);
 }
 
@@ -209,11 +204,13 @@ label {
 }
 
 .details > p {
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 #edit-form {
+  align-items: center;
   flex-wrap: wrap;
+  gap: 5px;
 }
 
 .form-content-container {
@@ -223,6 +220,7 @@ label {
   height: 25px;
   width: 100%;
   white-space: nowrap;
+  margin: 5 0;
 }
 
 /* DELETE PAGE */
@@ -237,7 +235,6 @@ label {
 }
 
 #delete-form input {
-  font-style: normal;
   text-decoration: underline;
   font-size: 12pt;
   font-weight: bold;
