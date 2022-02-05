@@ -68,21 +68,34 @@ app.post("/", (req, res) => {
   res.redirect("/");
 });
 
-// SORTED PAGE
+// SORT BY NEW PAGE
 
 app.get("/sort/new", (req, res) => {
   const todosSorted = [...todosArray];
 
   todosSorted.sort((a, b) => {
-    createdA = a.created;
-    createdB = b.created;
-
-    if (createdB < createdA) {
+    if (b.created < a.created) {
       return -1;
     }
   });
 
-  res.render("todo-sorted", { todosSorted });
+  res.render("todos-sort-new", { todosSorted });
+});
+
+// FILTER IN PROGRESS PAGE
+
+app.get("/in-progress", (req, res) => {
+  const todosFiltered = todosArray.filter((todos) => todos.completed === false);
+
+  res.render("todos-filtered", { todosFiltered });
+});
+
+// FILTER COMPLETED PAGE
+
+app.get("/completed", (req, res) => {
+  const todosFiltered = todosArray.filter((todos) => todos.completed === true);
+
+  res.render("todos-filtered", { todosFiltered });
 });
 
 // DETAILED PAGE
