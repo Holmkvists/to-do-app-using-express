@@ -110,6 +110,7 @@ option:hover {
   width: 95%;
   padding: 1em;
   margin-top: 10px;
+  overflow-x: hidden;
 }
 
 .description {
@@ -127,6 +128,16 @@ option:hover {
 .completed-status {
   font-size: 10pt;
   color: var(--main-color);
+}
+
+#sort-filter-links {
+  width: 95%;
+}
+
+#sort-filter-links a {
+  border: none;
+  font-style: normal;
+  outline: 3px solid var(--secondary-color);
 }
 
 h3 {
@@ -177,19 +188,20 @@ label {
   text-decoration: underline;
 }
 
-#link-container {
+.links-container {
   background-color: var(--main-color);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
   margin-top: 15px;
 }
 
-#link-container a {
+.links-container a {
   font-style: italic;
   font-weight: bold;
   text-align: center;
-  width: 100%;
+  width: 50%;
   color: var(--secondary-color);
   border: 3px solid var(--secondary-color);
   padding: 0.75em;

@@ -47,6 +47,8 @@ function getDateTime() {
 
 // HOME PAGE
 
+// Sorts oldest first by default
+
 app.get("/", (req, res) => {
   res.render("home", { todosArray });
 });
@@ -64,6 +66,23 @@ app.post("/", (req, res) => {
 
   todosArray.push(newTodo);
   res.redirect("/");
+});
+
+// SORTED PAGE
+
+app.get("/sort/new", (req, res) => {
+  const todosSorted = [...todosArray];
+
+  todosSorted.sort((a, b) => {
+    createdA = a.created;
+    createdB = b.created;
+
+    if (createdB < createdA) {
+      return -1;
+    }
+  });
+
+  res.render("todo-sorted", { todosSorted });
 });
 
 // DETAILED PAGE
