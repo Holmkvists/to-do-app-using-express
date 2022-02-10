@@ -50,7 +50,8 @@ function getDateTime() {
 // Sorts oldest first by default
 
 app.get("/", (req, res) => {
-  res.render("home", { todosArray });
+  const todosToDisplay = [...todosArray];
+  res.render("home", { todosToDisplay });
 });
 
 app.post("/", (req, res) => {
@@ -79,7 +80,9 @@ app.get("/sort/new", (req, res) => {
     }
   });
 
-  res.render("todos-sort-new", { todosSorted });
+  const todosToDisplay = [...todosSorted];
+
+  res.render("home", { todosToDisplay });
 });
 
 // FILTER IN PROGRESS PAGE
@@ -87,7 +90,9 @@ app.get("/sort/new", (req, res) => {
 app.get("/in-progress", (req, res) => {
   const todosFiltered = todosArray.filter((todos) => todos.completed === false);
 
-  res.render("todos-filtered", { todosFiltered });
+  const todosToDisplay = [...todosFiltered];
+
+  res.render("home", { todosToDisplay });
 });
 
 // FILTER COMPLETED PAGE
@@ -95,7 +100,9 @@ app.get("/in-progress", (req, res) => {
 app.get("/completed", (req, res) => {
   const todosFiltered = todosArray.filter((todos) => todos.completed === true);
 
-  res.render("todos-filtered", { todosFiltered });
+  const todosToDisplay = [...todosFiltered];
+
+  res.render("home", { todosToDisplay });
 });
 
 // DETAILED PAGE
